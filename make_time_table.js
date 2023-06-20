@@ -1,15 +1,14 @@
-function MakeTimeTable() {
-}
+function MakeTimeTable() {}
 
-MakeTimeTable.prototype.makeTimeTable = function() {
-  $.getJSON("student.php", { method: "subjects" }, function(json){
-    for(let s of json){
-      $('#subjects').append('<li>'+s+'</li>');
-	  }
-	});
-}
+MakeTimeTable.prototype.makeTimeTable = function () {
+  $.getJSON("student.php", { method: "subjects" }, function (json) {
+    for (let s of json) {
+      $("#subjects").append("<li>" + s + "</li>");
+    }
+  });
+};
 
-$(function(){
+$(function () {
   const mt = new MakeTimeTable();
   mt.makeTimeTable();
 });
