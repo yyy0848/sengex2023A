@@ -1,12 +1,20 @@
-function show(subjectId) {
-    const url = `subject.php?method=${getTitle}`;
+function ShowReview() {}
 
-// GETリクエストを送信
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // PHPからのレスポンスを表示
-        });
+ShowReview.prototype.showReview = function() {
+    $.getJSON("subject.php", { method: "getTitle" }, function (json) {
+        $("#title").append(json);
+    });
+}
+
+$(function() {
+   const rv = new ShowReview();
+   rv.showReview();
+});
+
+function show(subjectId) {
+    $.getJSON("subject.php", { method: "getTitle" }, function (json) {
+        $("#title").append(json);
+    });
 }
 
 function edit(subjectId) {
