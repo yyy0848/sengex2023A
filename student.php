@@ -35,3 +35,13 @@ class Student
     $this->revs[$id]->setText($text);
   }
 }
+
+$st = new Student();
+
+if($_GET['method'] === "subjects"){
+  echo json_encode($st->subjects);
+}else{
+  echo json_encode(array('error'=>"unknown_method"));
+}
+exit();
+?>
