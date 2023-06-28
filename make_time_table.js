@@ -8,6 +8,7 @@ MakeTimeTable.prototype.makeTimeTable = function () {
   });
 };
 
+
 $(function () {
   const mt = new MakeTimeTable();
   mt.makeTimeTable();
