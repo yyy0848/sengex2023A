@@ -2,14 +2,13 @@ function MakeTimeTable() {}
 
 MakeTimeTable.prototype.makeTimeTable = function () {
   $.getJSON("student.php", { method: "subjects" }, function (json) {
-    for (let s of json) {
+    for (var s of json) {
       $("#subjects").append("<li>" + s + "</li>");
     }
   });
 };
 
-
 $(function () {
-  const mt = new MakeTimeTable();
+  var mt = new MakeTimeTable();
   mt.makeTimeTable();
 });
