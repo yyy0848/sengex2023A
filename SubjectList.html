@@ -13,12 +13,13 @@
   <body>
     <h1>科目一覧表示画面</h1>
     <h2>履修科目一覧</h2>
-      <a href="./ShowReview.html">
-        <li id="subject"></li>
-        <div class="isReview">
-          <a>レビューあり(←条件分岐で各項目の横に書きたい)</a>
-        <div>
-      </a>
+    <!-- このonClick使える？？ -->
+    <a href="./ShowReview.html" onclick="Show(subject);">
+      <li id="subject"></li>
+      <div class="isReview">
+        <a>レビューあり(←条件分岐で各項目の横に書きたい)</a>
+      <div>
+    </a>
     <input type="button" value="再読込" onclick="window.location.reload()" />
 
     <script src="subject_list.js"></script>
