@@ -33,6 +33,7 @@ const saveEl = document.getElementById('save') ?? null;
     $.getJSON("subject.php", {method: "setReviewText", id: 1, text: "hogehuga"}, function (json) {
       var text = json.text;
       });
+    location.href = './SubjectList.html'
       showList();
   });
 //}
@@ -41,6 +42,7 @@ const saveEl = document.getElementById('save') ?? null;
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
   cancelEl.addEventListener('click', function () {
+    location.href = './SubjectList.html'
     showList();
   });
 //}

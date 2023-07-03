@@ -8,6 +8,7 @@ alert("wtf2")
     const showEl = document.getElementById('show') ?? null;
     if (showEl)
       showEl.addEventListener('click', function () {
+        location.href = './ShowReview.html'
         show(1);
       });
     //}
@@ -16,6 +17,7 @@ alert("wtf2")
     const newReviewEl = document.getElementById('newReview') ?? null;
     if (newReviewEl)
       newReviewEl.addEventListener('click', function () {
+        location.href = './ShowReview.html'
         show(1);
       });
   //}
@@ -26,7 +28,6 @@ function SubjectList() { }
 function showList() {
   //subjectIDリストを取得する
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
-    location.href = './SubjectList.html'
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
     for (let id of json_id)
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {

@@ -37,6 +37,7 @@ if (editEl)
 const closeEl = document.getElementById('close') ?? null;
 if (closeEl)
   closeEl.addEventListener('click', function () {
+    location.href = './SubjectList.html'
       showList();
     });
   //}
@@ -46,6 +47,7 @@ if (closeEl)
     var btn = document.getElementById('edit')
     if (btn) {
       btn.addEventListener('click', function () {
+        location.href = './EditReview.html'
         edit(1);
       });
     }
