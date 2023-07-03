@@ -1,23 +1,47 @@
-function ShowList() {
+function SubjectList() { }
+
+function showList() {
 
 }
-function ShowReview(id) { 
+
+
+
+function showReview(id) {
   /* TODO: showReviewCtrlのshowを呼び出す*/
 }
-/* new　が予約語やった */
-function newReview(id) { 
+
+function newReview(id) {
   /* TODO: editReviewCtrlのnewを呼び出す*/
 }
 
-ShowList.prototype.showList = function () {
-  $.getJSON("student.php", { method: "subjects" }, function (json) {
-    for (let s of json) {
-      $("#subjects").append("<li>" + s + "</li>");
-    }
+SubjectList.prototype.subjectList = function () {
+  //subjectIDリストを取得する
+  $.getJSON("student.php", { method: "subjects" }, function (json_id) {
+    console.log(json_id);
+
+    
+      $.getJSON("subject.php", { method: "getTitle", id: 1 }, function (json_title) {
+        console.log(json_title);
+        $("#subjects").append("<li>" + json_title + "</li>");
+      });
+
   });
+
+
+  //subjectIDをgetTitleに渡して取得。for文で回して出力する
+
+
+
+
+
+
+
+
+
+  //$.showList(); 以上の処理をshowListに移植する
 };
 
 $(function () {
-  const sl = new ShowList();
-  sl.showList();
+  const sl = new SubjectList();
+  sl.subjectList();
 });

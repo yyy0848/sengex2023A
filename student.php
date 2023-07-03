@@ -1,19 +1,16 @@
 <?php
-
-require 'review.php';
-require 'subject.php';
-
+require "subject.php";
+require "review.php";
 class Student
 {
   private $studentNo = 1;
-  private $subjectIds = array(1, 2, 3, 4, 5);
+  public $subjectIds = array(1, 2, 3, 4, 5);
   private $reviews;
   public $subjects;
 
   function __construct()
   {
-    $this->reviews = array_map([$this, 'getReview'], $this->subjectIds);
-    $this->subjects = array_map([$this, 'getSubject'], $this->subjectIds);
+    $this->reviews = array_map([$this, "getReview"], $this->subjectIds);
   }
 
   public function getReview($revId)
@@ -21,12 +18,8 @@ class Student
     return new Review($revId);
   }
 
-  public function getSubject($subId)
+  public function subjects()
   {
-    return new Subject($subId);
-  }
-
-  public function subjects() {
     return $this->subjectIds;
   }
 
@@ -41,22 +34,15 @@ class Student
     $this->reviews[$id]->setText($text);
   }
 }
-/* 
-$sbs = $st->subjects;
-$json = json_encode($st->subjects);
-print_r($sbs.''); 
-echo $json;
-*/
-
-
-
 
 $st = new Student();
 
-if($_GET['method'] === "subjects"){
-  echo json_encode($st->subjects());
-}else{
-  echo json_encode(array('error'=>"unknown_method"));
-} 
-exit();
-?>
+if (isset($_GET["method"])) {
+  if ($_GET["method"] === "subjects") {
+    echo json_encode($st->subjects());
+
+  } else {
+    echo json_encode(array("error" => "unknown_method"));
+  }
+}
+
