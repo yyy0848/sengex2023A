@@ -1,7 +1,7 @@
 <?php
 
 class Review{
-  public $_subjectId;
+  private $_subjectId;
   function __construct($id){
     $this->_subjectId = $id;
   }

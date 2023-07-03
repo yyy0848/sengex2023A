@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="ja">
+  <html lang="ja">
+
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="SubjectList.css" >
+    <link rel="stylesheet" href="SubjectList.css">
     <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"defer></script>
+    <script src="subject_list.js" defer></script>
     <title>科目一覧表示画面</title>
   </head>
+
   <body>
     <h1>科目一覧表示画面</h1>
     <h2>履修科目一覧</h2>
-    <ul>
+    <ul id="subjects">
       <li>
         <!--<a href="./ShowReview.html">インターネット技術</a>-->
         <a id="1">インターネット技術</a>
@@ -21,8 +25,11 @@
       <li>ウェブデザイン演習</li>
       <li>プログラミング言語</li>
       <li>HCIデザイン</li>
+      <li>-以下jsonから取得して表示してるリスト-</li>
+
     </ul>
     <input type="button" value="再読込" onclick="window.location.reload()" />
     <script type="module" src="subject_list.js" defer></script>
   </body>
-</html>
+
+  </html>

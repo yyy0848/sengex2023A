@@ -1,25 +1,26 @@
 <?php
 header('content-type: application/json; charset=UTF-8');
-class Subject{
-  public $data = array(1 => '科目１', 2 => '科目２', 3 => '科目３');
-  public $title = "Subject";
 
-  public function getTitle($id) {
-      return $this->data[$id];
+class Subject
+{
+  public function getTitle($id)
+  {
+    $title = $this->getDummyData($id);
+    return $title;
+  }
+
+  private function getDummyData($id)
+  {
+    $data = array(1 => 'インターネット技術', 2 => '情報システム基盤技術', 3 => 'ウェブデザイン演習', 4 => 'プログラミング言語', 5 => 'HCIデザイン',);
+    return $data[$id];
   }
 }
 
-$sb = new Subject();
-
-if(isset($_GET['method'])) {
-    if ($_GET['method'] === "getTitle") {
-        echo json_encode($sb->getTitle($_GET['id']));
-    /*
-    }else if($_GET['method'] === "subject") {
-        echo json_encode($sb->data);
-    */
-    }else {
-      echo json_encode(array('error'=>"unknown_method"));
-    }
+$subject = new Subject();
+if (isset($_GET["method"])) {
+  if ($_GET['method'] === "getTitle") {
+    echo json_encode($subject->getTitle($_GET["id"]));
+  } else {
+//　echo json_encode(array("error" => "unknown_method"));
+  }
 }
-exit();

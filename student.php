@@ -1,37 +1,48 @@
 <?php
-
+require "subject.php";
+require "review.php";
 class Student
 {
-  public $studentNo = 1;
-  public $subjects = array(1, 2, 3, 4, 5);
-  public $revs = array_map(function ($revId) {
-    return new Review($revId);
-  }, $revIds);
+  private $studentNo = 1;
+  public $subjectIds = array(1, 2, 3, 4, 5);
+  private $reviews;
+  public $subjects;
 
   function __construct()
   {
-    print_r($this->revs);
+    $this->reviews = array_map([$this, "getReview"], $this->subjectIds);
+  }
+
+  public function getReview($revId)
+  {
+    return new Review($revId);
   }
 
   public function subjects()
   {
-    /* TODO: subjectのリストを返す  */
-    return $this->subjects;
-  }
-
-  public function reviews($revId)
-  {
-    return new Review($revId);
+    return $this->subjectIds;
   }
 
   public function getReviewText($id)
   {
-    return $this->revs[$id]->getText();
+    return $this->reviews[$id]->getText();
   }
 
   public function setReviewText($id, $text)
   {
     /* TODO: レビューテキストをsetする */
-    $this->revs[$id]->setText($text);
+    $this->reviews[$id]->setText($text);
   }
 }
+
+$st = new Student();
+
+if (isset($_GET["method"])) {
+  if ($_GET["method"] === "subjects") {
+    echo json_encode($st->subjects());
+
+  } else {
+    echo json_encode(array("error" => "unknown_method"));
+  }
+}
+
