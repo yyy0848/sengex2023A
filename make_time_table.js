@@ -1,4 +1,4 @@
-function EditReview() {}
+function MakeTimeTable() {}
 
 MakeTimeTable.prototype.makeTimeTable = function () {
   $.getJSON("student.php", { method: "subjects" }, function (json) {
