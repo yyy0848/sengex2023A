@@ -1,19 +1,12 @@
 <?php
 
 class Subject{
-  private $id;
-  private $title;
-
-
-  function __construct($id)
-  {
-    $this->id = $id;
-    $this->title = $this->getDummyData($id);
-  }
   
   public function getTitle($id)
   {
-      return $this->title;
+    $title = $this->getDummyData($id);
+    return $title;
+  
   }
 
   private function getDummyData($id){
