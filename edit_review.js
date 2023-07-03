@@ -11,7 +11,7 @@ EditReview.prototype.editReview = function () {
 };
 
 
-function newReview(subjectID) {
+export default function newRev(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
 
   });

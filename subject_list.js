@@ -1,4 +1,5 @@
 import show from "./show_review.js";
+import newRev from "./edit_review.js";
 
 alert("wtf2")
 
@@ -33,12 +34,13 @@ export default function showList() {
 
 function showReview(id) {
   /* TODO: showReviewCtrlのshowを呼び出す*/
+  show(id);
 
 }
 
 function newReview(id) {
   /* TODO: editReviewCtrlのnewを呼び出す*/
-
+  newRev(id)
 }
 
 SubjectList.prototype.subjectList = function () {
