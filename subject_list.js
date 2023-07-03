@@ -9,7 +9,7 @@ alert("wtf2")
     if (showEl)
       showEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
-        show(1);
+        showReview(1);
       });
     //}
 
@@ -18,7 +18,7 @@ alert("wtf2")
     if (newReviewEl)
       newReviewEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
-        show(1);
+        newReview(1);
       });
   //}
 //});
