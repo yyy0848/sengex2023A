@@ -13,7 +13,7 @@ class Subject{
   
   public function getTitle($id)
   {
-      return $this->$id;
+      return $this->title;
   }
 
   private function getDummyData($id){
