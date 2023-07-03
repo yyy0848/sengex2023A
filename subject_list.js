@@ -6,16 +6,17 @@ export default function showList() {
   location.href = './SubjectList.html';
 }
 
+//document.addEventListener("DOMContentLoaded", function() {
 //function showList() {
-  var btn = document.getElementById('show');
-  btn.addEventListener('click', function () {
+  document.getElementById('show').addEventListener('click', function () {
     show(1);
   });
+
 //}
 
-function newReview() {
-  var btn = document.getElementById('newReview');
-  btn.addEventListener('click', function () {
-    show(1);
-  });
-}
+  //function newReview() {
+    document.getElementById('newReview').addEventListener('click', function () {
+      show(1);
+    });
+  //}
+//});

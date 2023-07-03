@@ -10,10 +10,6 @@ EditReview.prototype.editReview = function () {
   });
 };
 
-$(function () {
-  var mt = new EditReview();
-  mt.editReview();
-});
 
 function newReview(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
@@ -33,9 +29,9 @@ export default function edit(subjectID) {
   });
 }
 
+//document.addEventListener("DOMContentLoaded", function() {
 //function save(subjectID, reviewText) {
-  var btn = document.getElementById('save');
-  btn.addEventListener('click', function() {
+  document.getElementById('save').addEventListener('click', function () {
     $.getJSON("subject.php", {method: "setReviewText", id: 1, text: "hogehuga"}, function (json) {
       var text = json.text;
     });
@@ -44,8 +40,12 @@ export default function edit(subjectID) {
 //}
 
 //function cancel() {
-  var btn = document.getElementById('cancel');
-  btn.addEventListener('click', function() {
+  document.getElementById('cancel').addEventListener('click', function () {
     showList();
   });
 //}
+//});
+$(function () {
+  var mt = new EditReview();
+  mt.editReview();
+});

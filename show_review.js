@@ -2,7 +2,7 @@ import showList from './subject_list.js';
 import edit from './edit_review.js';
 
 function ShowReview() {}
-/*
+
 ShowReview.prototype.showReview = function() {
   $.getJSON("subject.php", { method: "getTitle", id: 1 }, function (json) {
     // console.log(json);
@@ -16,8 +16,6 @@ $(function() {
   rv.showReview();
 });
 
- */
-
 export default function show(subjectId) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectId }, function (json) {
     console.log(json);
@@ -29,20 +27,20 @@ export default function show(subjectId) {
   });
 }
 
+//document.addEventListener("DOMContentLoaded", function() {
 //function editReview(subjectId) {
-  var btn = document.getElementById('edit');
-  btn.addEventListener('click', function() {
+  document.getElementById('edit').addEventListener('click', function () {
     edit(1);
   });
 //}
 
 // closePage()が読み込まれるように出来たら、中身はshowList()だけでいい
-// function closePage() {
-  var btn = document.getElementById('close');
-  btn.addEventListener('click', function() {
-    showList();
-  });
-// }
+  //function closePage() {
+    document.getElementById('close').addEventListener('click', function () {
+      showList();
+    });
+  //}
+//});
 
 /*
 addEventListener('DOMContentLoaded', ()=> {
