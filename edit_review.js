@@ -13,6 +13,12 @@ $(function () {
   mt.editReview();
 });
 
+function newReview(subjectID) {
+  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
+
+  });
+}
+
 function edit(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
     for (var s of json) {
@@ -24,3 +30,16 @@ function edit(subjectID) {
   });
 }
 export {edit};
+
+function save(subjectID, reviewText) {
+  $.getJSON("subject.php", { method: "setReviewText", id: subjectID, text: reviewText }, function (json) {
+    var text = json.text;
+  });
+  import showList from "./subject_list";
+  showList();
+}
+
+function cancel() {
+  import showList from "./subject_list";
+  showList();
+}
