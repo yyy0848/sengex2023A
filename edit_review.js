@@ -1,3 +1,5 @@
+import showList from "./subject_list.js";
+
 function EditReview() {}
 
 EditReview.prototype.editReview = function () {
@@ -19,7 +21,7 @@ function newReview(subjectID) {
   });
 }
 
-function edit(subjectID) {
+export default function edit(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
     for (var s of json) {
       $("#subjects").append("<li>" + s + "</li>");
@@ -29,17 +31,14 @@ function edit(subjectID) {
     //parse the Json
   });
 }
-export {edit};
 
 function save(subjectID, reviewText) {
   $.getJSON("subject.php", { method: "setReviewText", id: subjectID, text: reviewText }, function (json) {
     var text = json.text;
   });
-  import showList from "./subject_list";
   showList();
 }
 
 function cancel() {
-  import showList from "./subject_list";
   showList();
 }

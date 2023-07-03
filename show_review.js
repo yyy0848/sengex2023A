@@ -1,4 +1,5 @@
-import showList from "./subject_list";
+import showList from './subject_list.js';
+import edit from './edit_review.js';
 
 function ShowReview() {}
 
@@ -21,20 +22,17 @@ function show(subjectId) {
   });
 }
 
-//import {edit} from './edit_review';
-function edit(subjectId) {
-  import {edit} from './edit_review';
+function editReview(subjectId) {
   edit(subjectId);
 }
 
-function closePage() {
+//function closePage() {
   var btn = document.getElementById('close');
   btn.addEventListener('click', function() {
-    import showList from './subject_list.js';
-    showList();
+  showList();
   });
-  //showList();
-}
+//}
+
 /*
 addEventListener('DOMContentLoaded', ()=> {
   closePage();
