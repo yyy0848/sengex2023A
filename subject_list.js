@@ -18,12 +18,11 @@ SubjectList.prototype.subjectList = function () {
   //subjectIDリストを取得する
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
     console.log(json_id);
-
-    
-      $.getJSON("subject.php", { method: "getTitle", id: 1 }, function (json_title) {
-        console.log(json_title);
-        $("#subjects").append("<li>" + json_title + "</li>");
-      });
+    for(let id of json_id)
+    $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
+      console.log(json_title);
+      $("#subjects").append("<li>" + json_title + "</li>");
+    });
 
   });
 
