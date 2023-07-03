@@ -20,6 +20,6 @@ if (isset($_GET["method"])) {
   if ($_GET['method'] === "getTitle") {
     echo json_encode($subject->getTitle($_GET["id"]));
   } else {
-   // echo json_encode(array("error" => "unknown_method"));
+//　echo json_encode(array("error" => "unknown_method"));
   }
 }
