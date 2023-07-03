@@ -47,7 +47,7 @@ function showReview(id) {
 
 function newReview(id) {
   /* TODO: editReviewCtrlのnewを呼び出す*/
-  newRev(id)
+  newRev(id);
 }
 
 SubjectList.prototype.subjectList = function () {
