@@ -1,4 +1,4 @@
-import showList from "./subject_list.js";
+import {showList} from "./subject_list.js";
 
 function EditReview() {}
 
@@ -7,13 +7,13 @@ EditReview.prototype.editReview = function () {
 };
 
 
-export default function newRev(subjectID) {
+function newRev(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
 
   });
 }
 
-export default function edit(subjectID) {
+function edit(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
     console.log(json);
     for (var s of json) {
@@ -27,7 +27,9 @@ export default function edit(subjectID) {
 
 //document.addEventListener("DOMContentLoaded", function() {
 //function save(subjectID, reviewText) {
-  document.getElementById('save').addEventListener('click', function () {
+const saveEl = document.getElementById('save') ?? null;
+  if(saveEl)
+  saveEl.addEventListener('click', function () {
     $.getJSON("subject.php", {method: "setReviewText", id: 1, text: "hogehuga"}, function (json) {
       var text = json.text;
     });
@@ -36,7 +38,9 @@ export default function edit(subjectID) {
 //}
 
 //function cancel() {
-  document.getElementById('cancel').addEventListener('click', function () {
+const cancelEl = document.getElementById('cancel') ?? null;
+if (cancelEl)
+  cancelEl.addEventListener('click', function () {
     showList();
   });
 //}
@@ -45,3 +49,5 @@ $(function () {
   var mt = new EditReview();
   mt.editReview();
 });
+
+export {newRev, edit};

@@ -1,18 +1,22 @@
-import show from "./show_review.js";
-import newRev from "./edit_review.js";
+import {show} from "./show_review.js";
+import {newRev} from "./edit_review.js";
 
 alert("wtf2")
 
 //document.addEventListener("DOMContentLoaded", function() {
 //function showList() {
-  document.getElementById('show').addEventListener('click', function () {
+const showEl = document.getElementById('show') ?? null;
+if (showEl)
+  showEl.addEventListener('click', function () {
     show(1);
   });
 
 //}
 
   //function newReview() {
-    document.getElementById('newReview').addEventListener('click', function () {
+const newReviewEl = document.getElementById('newReview') ?? null;
+if (newReviewEl)
+  newReviewEl.addEventListener('click', function () {
       show(1);
     });
   //}
@@ -20,7 +24,7 @@ alert("wtf2")
 
 function SubjectList() { }
 
-export default function showList() {
+function showList() {
   //subjectIDリストを取得する
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
@@ -51,3 +55,5 @@ $(function () {
   const sl = new SubjectList();
   sl.subjectList();
 });
+
+export { showList };
