@@ -1,11 +1,11 @@
 function ShowList() {
 
 }
-function Show(id) { 
+function ShowReview(id) { 
   /* TODO: showReviewCtrlのshowを呼び出す*/
 }
 /* new　が予約語やった */
-function Make(id) { 
+function newReview(id) { 
   /* TODO: editReviewCtrlのnewを呼び出す*/
 }
 
