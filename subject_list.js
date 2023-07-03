@@ -2,10 +2,6 @@ import show from "./show_review.js";
 
 alert("wtf2")
 
-export default function showList() {
-  location.href = './SubjectList.html';
-}
-
 //document.addEventListener("DOMContentLoaded", function() {
 //function showList() {
   document.getElementById('show').addEventListener('click', function () {
@@ -23,7 +19,7 @@ export default function showList() {
 
 function SubjectList() { }
 
-function showList() {
+export default function showList() {
   //subjectIDリストを取得する
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
