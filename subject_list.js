@@ -9,6 +9,7 @@ alert("wtf2")
     if (showEl)
       showEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
+        /* TODO:遷移先の科目のIDを動的に渡す */
         showReview(1);
       });
     //}
@@ -18,6 +19,7 @@ alert("wtf2")
     if (newReviewEl)
       newReviewEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
+        /* TODO:遷移先の科目のIDを動的に渡す */
         newReview(1);
       });
   //}
