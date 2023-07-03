@@ -33,7 +33,7 @@ function showList() {
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
     for (let id of json_id)
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
-        $("#subjects").append("<li id='"+id+"'>" + json_title + "</li>");
+        $("#subjects").append("<li class='noReview' id='"+id+"'>" + json_title + "</li>");
       });
 
   });
