@@ -2,10 +2,10 @@ import showList from './subject_list.js';
 import edit from './edit_review.js';
 
 function ShowReview() {}
-
+/*
 ShowReview.prototype.showReview = function() {
   $.getJSON("subject.php", { method: "getTitle", id: 1 }, function (json) {
-    //console.log(json);
+    // console.log(json);
     $('div').append('<p>' + json + '</p>');
     // $('#title').append('<p>' + json + '</p>');
   });
@@ -16,22 +16,33 @@ $(function() {
   rv.showReview();
 });
 
-function show(subjectId) {
-  $.getJSON("subject.php", { method: "getTitle" }, function (json) {
-    $('#title').append(json);
+ */
+
+export default function show(subjectId) {
+  $.getJSON("subject.php", { method: "getTitle", id: subjectId }, function (json) {
+    console.log(json);
+    //$('#title').append(json);
+  });
+  $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json) {
+    console.log(json);
+    //$('#title').append(json);
   });
 }
 
-function editReview(subjectId) {
-  edit(subjectId);
-}
-
-//function closePage() {
-  var btn = document.getElementById('close');
+//function editReview(subjectId) {
+  var btn = document.getElementById('edit');
   btn.addEventListener('click', function() {
-  showList();
+    edit(1);
   });
 //}
+
+// closePage()が読み込まれるように出来たら、中身はshowList()だけでいい
+// function closePage() {
+  var btn = document.getElementById('close');
+  btn.addEventListener('click', function() {
+    showList();
+  });
+// }
 
 /*
 addEventListener('DOMContentLoaded', ()=> {
