@@ -5,7 +5,7 @@ alert("wtf2")
 
 //document.addEventListener("DOMContentLoaded", function() {
   //function showList() {
-    const showEl = document.getElementById('show') ?? null;
+    const showEl = document.getElementById('reviewed') ?? null;
     if (showEl)
       showEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
@@ -15,7 +15,7 @@ alert("wtf2")
     //}
 
   //function newReview() {
-    const newReviewEl = document.getElementById('newReview') ?? null;
+const newReviewEl = document.getElementById('noReview') ?? null;
     if (newReviewEl)
       newReviewEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
