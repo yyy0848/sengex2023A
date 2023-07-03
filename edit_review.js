@@ -3,11 +3,7 @@ import showList from "./subject_list.js";
 function EditReview() {}
 
 EditReview.prototype.editReview = function () {
-  $.getJSON("student.php", { method: "subjects" }, function (json) {
-    for (var s of json) {
-      $("#subjects").append("<li>" + s + "</li>");
-    }
-  });
+
 };
 
 

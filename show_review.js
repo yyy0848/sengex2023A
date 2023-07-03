@@ -4,11 +4,7 @@ import edit from './edit_review.js';
 function ShowReview() {}
 
 ShowReview.prototype.showReview = function() {
-  $.getJSON("subject.php", { method: "getTitle", id: 1 }, function (json) {
-    // console.log(json);
-    $('div').append('<p>' + json + '</p>');
-    // $('#title').append('<p>' + json + '</p>');
-  });
+  
 };
 
 $(function() {
