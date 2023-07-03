@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -10,18 +9,22 @@
   <body>
     <h1>科目一覧表示画面</h1>
     <h2>履修科目一覧</h2>
-    <ul>
-      <li>
-        <a href="./ShowReview.html">インターネット技術</a>
+      <a href="./ShowReview.html">
+        <li id="subject"></li>
         <div class="isReview">
-          <a>レビューあり</a>
+          <a>レビューあり(←条件分岐で各項目の横に書きたい)</a>
         <div>
-      </li>
-      <li>情報システム基盤技術</li>
-      <li>ウェブデザイン演習</li>
-      <li>プログラミング言語</li>
-      <li>HCIデザイン</li>
-    </ul>
+      </a>
     <input type="button" value="再読込" onclick="window.location.reload()" />
+
+    <script>
+      <!-- liタグ:id="subject" のリストを生成 -->
+      var todo = ['インターネット技術', '情報システム基盤技術', 'ウェブデザイン演習', 'プログラミング言語', 'HCIデザイン']; 
+      for (var i = 0; i < todo.length; i++) {
+        var todoList = document.createElement('li');
+        todoList.textContent = todo[i];
+        document.getElementById('subject').appendChild(todoList);
+      }
+    </script>
   </body>
 </html>
