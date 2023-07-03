@@ -5,7 +5,10 @@
     <link rel="stylesheet" href="SubjectList.css" >
     <meta name="viewport" content="width=device-width" />
     <title>科目一覧表示画面</title>
-    <script src="subject_list.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
   </head>
   <body>
     <h1>科目一覧表示画面</h1>
@@ -18,6 +21,7 @@
       </a>
     <input type="button" value="再読込" onclick="window.location.reload()" />
 
+    <script src="subject_list.js"></script>
     <script>
       <!-- liタグ:id="subject" のリストを生成 -->
       var todo = ['インターネット技術', '情報システム基盤技術', 'ウェブデザイン演習', 'プログラミング言語', 'HCIデザイン']; 

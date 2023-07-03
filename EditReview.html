@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>レビュー作成画面</title>
-    <script src="edit_review.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
   </head>
   <body>
     <h1>レビュー作成画面</h1>
@@ -12,9 +15,10 @@
     <form method="post" target="send">
       <textarea rows="20" cols="80" maxlength="200"></textarea>
       <br>
-      <input type="button" value="保存" onclick="location.href='./SubjectList.html'" />
-      <input type="button" value="キャンセル" onclick="location.href='./ShowReview.html'" />
+      <input type="button" id="save" value="保存" onclick="location.href='./SubjectList.html'" />
+      <input type="button" id="cancel" value="キャンセル" onclick="location.href='./ShowReview.html'" />
     </form>
+    <script type="module" src="./edit_review.js" ></script>
     <script>
       <!-- 取得した値を書き込む -->
       let element_subject = document.querySelector('h2');
