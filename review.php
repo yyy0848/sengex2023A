@@ -2,10 +2,11 @@
 
 class Review{
   private $_subjectId;
+  private $_text;
   function __construct($id){
     $this->_subjectId = $id;
+    $this->_text = "";
   }
-  private $_text = "";
 
   public function getText()
   {

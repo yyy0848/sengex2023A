@@ -1,19 +1,25 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>レビュー表示画面</title>
-  </head>
-  <body>
-    <h1>レビュー作成画面</h1>
-    <h2>レビュー：インターネット技術</h2>
-    <form method="post" target="send">
-      <textarea readonly name="kansou" rows="4" cols="40">readonlyが設定されていると書き換え禁止</textarea>
-      <br>
-      <input type="button" value="閉じる" onclick="location.href='./SubjectList.html'" />
-      <input type="button" value="編集" onclick="location.href='./EditReview.html'" />
-    </form>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>レビュー表示画面</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1>レビュー作成画面</h1>
+  <h2>レビュー：インターネット技術</h2>
+  <form method="post" target="send">
+    <textarea readonly name="kansou" rows="4" cols="40">readonlyが設定されていると書き換え禁止</textarea>
+    <br>
+    <!--onclickでJavaScriptの関数を呼び出してページ遷移するよう変更-->
+    <input type="button" id="close" value="閉じる" />
+    <input type="button" id="edit" value="編集" />
+  </form>
+  <ul id="subjects"></ul>
+  <script type="module" src="./show_review.js" defer></script>
+</body>
+
 </html>
