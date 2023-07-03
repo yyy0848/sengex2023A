@@ -42,6 +42,15 @@ if (closeEl)
   //}
 //});
 
+  //function editReview(subjectId) {
+    var btn = document.getElementById('edit')
+    if (btn) {
+      btn.addEventListener('click', function () {
+        edit(1);
+      });
+    }
+//}
+
 /*
 addEventListener('DOMContentLoaded', ()=> {
   closePage();

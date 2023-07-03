@@ -4,21 +4,20 @@ import {newRev} from "./edit_review.js";
 alert("wtf2")
 
 //document.addEventListener("DOMContentLoaded", function() {
-//function showList() {
-const showEl = document.getElementById('show') ?? null;
-if (showEl)
-  showEl.addEventListener('click', function () {
-    show(1);
-  });
-
-//}
+  //function showList() {
+    const showEl = document.getElementById('show') ?? null;
+    if (showEl)
+      showEl.addEventListener('click', function () {
+        show(1);
+      });
+    //}
 
   //function newReview() {
-const newReviewEl = document.getElementById('newReview') ?? null;
-if (newReviewEl)
-  newReviewEl.addEventListener('click', function () {
-      show(1);
-    });
+    const newReviewEl = document.getElementById('newReview') ?? null;
+    if (newReviewEl)
+      newReviewEl.addEventListener('click', function () {
+        show(1);
+      });
   //}
 //});
 
@@ -27,6 +26,7 @@ function SubjectList() { }
 function showList() {
   //subjectIDリストを取得する
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
+    location.href = './SubjectList.html'
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
     for (let id of json_id)
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
@@ -48,8 +48,9 @@ function newReview(id) {
 }
 
 SubjectList.prototype.subjectList = function () {
+  console.log("fucking");
   showList();
-};
+}
 
 $(function () {
   const sl = new SubjectList();

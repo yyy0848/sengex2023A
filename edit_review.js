@@ -32,8 +32,8 @@ const saveEl = document.getElementById('save') ?? null;
   saveEl.addEventListener('click', function () {
     $.getJSON("subject.php", {method: "setReviewText", id: 1, text: "hogehuga"}, function (json) {
       var text = json.text;
-    });
-    showList();
+      });
+      showList();
   });
 //}
 
@@ -45,6 +45,18 @@ if (cancelEl)
   });
 //}
 //});
+
+/*function EditReview() {}
+
+EditReview.prototype.editReview = function () {
+  $.getJSON("student.php", { method: "subjects" }, function (json) {
+    for (var s of json) {
+      $("#subjects").append("<li>" + s + "</li>");
+    }
+  });
+};
+*/
+
 $(function () {
   var mt = new EditReview();
   mt.editReview();
