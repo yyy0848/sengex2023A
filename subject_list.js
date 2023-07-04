@@ -16,6 +16,7 @@ alert("wtf2")
 
   //function newReview() {
 const newReviewEl = document.getElementById('noReview') ?? null;
+//console.log("newReviewEl = " + newReviewEl + " です");
     if (newReviewEl)
       newReviewEl.addEventListener('click', function () {
         location.href = './ShowReview.html'
