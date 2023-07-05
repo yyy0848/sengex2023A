@@ -14,19 +14,26 @@
     <h2>履修科目一覧</h2>
     <ul id="subjects">
       <li>
-        <!--<a href="./ShowReview.html">インターネット技術</a>-->
-        <a href="#" class="noReview" id="1">インターネット技術</a>
+        <a href="#" class="reviewed" id="1">インターネット技術</a>
       </li>
-      <li>情報システム基盤技術</li>
-      <li>ウェブデザイン演習</li>
-      <li>プログラミング言語</li>
-      <li>HCIデザイン</li>
+      <li>
+        <a href="#" class="noReview" id="2">情報システム基盤技術</a>
+      </li>
+      <li>
+        <a href="#" class="noReview" id="3">ウェブデザイン演習</a>
+      </li>
+      <li>
+        <a href="#" class="noReview" id="4">プログラミング言語</a>
+      </li>
+      <li>
+        <a href="#" class="noReview" id="5">HCIデザイン</a>
+      </li>
       <li>-以下jsonから取得して表示してるリスト-</li>
       <script>
-        const aElement = document.getElementById("subjects");
-        console.log(aElement.id);
+        const aElement = document.getElementById("2");
+        console.log(aElement.className);
         aElement.id = 'reviewed';
-        console.log(aElement.id);
+        console.log(aElement.className);
       </script>
 
     </ul>

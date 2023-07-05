@@ -1,3 +1,6 @@
-.isReview {
+a[class="reviewed"]:after {
+    white-space: pre;
+    content: "  レビューあり";
     color: red;
-}
+    }
+    

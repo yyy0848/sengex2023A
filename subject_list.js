@@ -6,9 +6,7 @@ alert("wtf2")
 //document.addEventListener("DOMContentLoaded", function() {
   //function showList() {
     const showEl = Array.from(document.getElementsByClassName('reviewed')) ?? null;
-    console.log("showEl = " + showEl + " です");
     if (showEl)
-    console.log("showEl = " + showEl + " です");
     showEl.forEach(function(target) {
       target.addEventListener('click', function () {
         location = './ShowReview.html'
@@ -20,12 +18,10 @@ alert("wtf2")
 
   //function newReview() {
 const newReviewEl = Array.from(document.getElementsByClassName('noReview')) ?? null;
-console.log("newReviewEl = " + newReviewEl + " です");
     if (newReviewEl)
-    console.log("newReviewEl = " + newReviewEl + " です");
     newReviewEl.forEach(function(target) {
       target.addEventListener('click', function () {
-        location = './ShowReview.html'
+        location = './EditReview.html'
         /* TODO:遷移先の科目のIDを動的に渡す */
         newReview(1);
       });
