@@ -31,12 +31,13 @@ if (newReviewEl)
 
 
 function showList() {
+  //$("#subjects").append("<li> <a href=" + "#" + " class='noReview' id='"+1+"'>" + "test" + " </a> </li>");
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
+    console.log("JSON Data: " + json_id);
     for (let id of json_id)
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
-        $("#subjects").append("<li class='noReview' id='"+id+"'>" + json_title + "</li>");
+        $("#subjects").append("<li> <a href=" + "#" + " class='noReview' id='"+id+"'>" + json_title + " </a> </li>");
       });
-
   });
 }
 
