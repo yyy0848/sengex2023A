@@ -7,12 +7,25 @@ ShowReview.prototype.showReview = function() {
 
 };
 
-$(function() {
-  var rv = new ShowReview();
-  rv.showReview();
-});
+
+const editEl = document.getElementById('edit') ?? null;
+if (editEl)
+  editEl.addEventListener('click', function () {
+    location.href = './EditReview.html'
+    edit(1);
+  });
+
+const closeEl = document.getElementById('close') ?? null;
+if (closeEl)
+  closeEl.addEventListener('click', function () {
+    location.href = './SubjectList.html'
+    showList();
+  });
 
 function show(subjectId) {
+  console.log("show");
+  /* TODO:  取得したタイトル、レビューテキストをshowReviewページの要素内にappendする*/
+  /* jsonは配列（Array）なので、直接append(json)するのはできない */
   $.getJSON("subject.php", { method: "getTitle", id: subjectId }, function (json) {
     console.log(json);
     //$('#title').append(json);
@@ -23,46 +36,10 @@ function show(subjectId) {
   });
 }
 
-//document.addEventListener("DOMContentLoaded", function() {
-//function editReview(subjectId) {
-const editEl = document.getElementById('edit') ?? null;
-if (editEl)
-  editEl.addEventListener('click', function () {
-    edit(1);
-  });
-//}
 
-// closePage()が読み込まれるように出来たら、中身はshowList()だけでいい
-  //function closePage() {
-const closeEl = document.getElementById('close') ?? null;
-if (closeEl)
-  closeEl.addEventListener('click', function () {
-    location.href = './SubjectList.html'
-      showList();
-    });
-  //}
-//});
-
-  //function editReview(subjectId) {
-    var btn = document.getElementById('edit')
-    if (btn) {
-      btn.addEventListener('click', function () {
-        location.href = './EditReview.html'
-        edit(1);
-      });
-    }
-//}
-
-/*
-addEventListener('DOMContentLoaded', ()=> {
-  closePage();
-})
-
-document.getElementById("close").onclick = function() {
-  console.log("wtf")
-  document.location = './SubjectList.html';
-}
-
- */
+$(function () {
+  var rv = new ShowReview();
+  rv.showReview();
+});
 
 export {show};
