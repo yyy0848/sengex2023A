@@ -15,17 +15,25 @@
     <ul id="subjects">
       <li>
         <!--<a href="./ShowReview.html">インターネット技術</a>-->
-        <a href="#" class="1" id="noReview">インターネット技術</a>
+        <a href="#" class="noReview" id="1">インターネット技術</a>
       </li>
       <li>情報システム基盤技術</li>
       <li>ウェブデザイン演習</li>
       <li>プログラミング言語</li>
       <li>HCIデザイン</li>
       <li>-以下jsonから取得して表示してるリスト-</li>
+      <script>
+        const aElement = document.getElementById("subjects");
+        console.log(aElement.id);
+        aElement.id = 'reviewed';
+        console.log(aElement.id);
+      </script>
 
     </ul>
     <input type="button" value="再読込" onclick="window.location.reload()" />
-    <script type="module" src="subject_list.js" defer></script>
+    <script type="module" src="subject_list.js" defer>
+      showList();
+    </script>
   </body>
 
   </html>

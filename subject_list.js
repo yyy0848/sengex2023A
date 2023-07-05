@@ -5,24 +5,31 @@ alert("wtf2")
 
 //document.addEventListener("DOMContentLoaded", function() {
   //function showList() {
-    const showEl = document.getElementById('reviewed') ?? null;
+    const showEl = Array.from(document.getElementsByClassName('reviewed')) ?? null;
+    console.log("showEl = " + showEl + " です");
     if (showEl)
-      showEl.addEventListener('click', function () {
-        location.href = './ShowReview.html'
+    console.log("showEl = " + showEl + " です");
+    showEl.forEach(function(target) {
+      target.addEventListener('click', function () {
+        location = './ShowReview.html'
         /* TODO:遷移先の科目のIDを動的に渡す */
         showReview(1);
       });
+    });
     //}
 
   //function newReview() {
-const newReviewEl = document.getElementById('noReview') ?? null;
-//console.log("newReviewEl = " + newReviewEl + " です");
+const newReviewEl = Array.from(document.getElementsByClassName('noReview')) ?? null;
+console.log("newReviewEl = " + newReviewEl + " です");
     if (newReviewEl)
-      newReviewEl.addEventListener('click', function () {
-        location.href = './ShowReview.html'
+    console.log("newReviewEl = " + newReviewEl + " です");
+    newReviewEl.forEach(function(target) {
+      target.addEventListener('click', function () {
+        location = './ShowReview.html'
         /* TODO:遷移先の科目のIDを動的に渡す */
         newReview(1);
       });
+    });
   //}
 //});
 
@@ -30,6 +37,7 @@ function SubjectList() { }
 
 function showList() {
   //subjectIDリストを取得する
+  console.log("showList");
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
     //subjectIDをgetTitleに渡して取得。for文で回して出力する
     for (let id of json_id)
