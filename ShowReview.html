@@ -4,19 +4,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>レビュー表示画面</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>レビュー表示画面</title>
 </head>
 
 <body>
   <h1>レビュー表示画面</h1>
+  <div id="title">
+  </div>
   <form method="post" target="send">
-    <ul id="title">
-      <script>
-        if (document.querySelector("ul").hasAttribute("id") && document.querySelector("ul").getAttribute("id")=== 'title')
-        console.log("OK.<ul>tag='title'.");
-      </script>
-    </ul>
     <br>
     <!--onclickでJavaScriptの関数を呼び出してページ遷移するよう変更-->
     <input type="button" id="close" value="閉じる" />
