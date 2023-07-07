@@ -20,7 +20,7 @@ if (closeEl)
     showList();
   });
 
-show(4); 
+//show(4); 
 //show(subjectId)自体は上手く作動している
 function show(subjectId) {
   
