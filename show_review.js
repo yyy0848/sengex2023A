@@ -4,7 +4,6 @@ import {edit} from './edit_review.js';
 function ShowReview() {}
 
 ShowReview.prototype.showReview = function() {
-
 };
 
 
@@ -23,15 +22,19 @@ if (closeEl)
   });
 
 function show(subjectId) {
-  console.log("show");
+  console.log("ここまではいってる");
+  
   /* TODO:  取得したタイトル、レビューテキストをshowReviewページの要素内にappendする*/
   /* jsonは配列（Array）なので、直接append(json)するのはできない */
   $.getJSON("subject.php", { method: "getTitle", id: subjectId }, function (json) {
     console.log(json);
+    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
     //$('#title').append(json);
   });
+
   $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json) {
     console.log(json);
+    $("#title").append("<textarea readonly row='" + 4 + "' col='" + 40 + "''>" + json_title + " </textarea>");
     //$('#title').append(json);
   });
 }

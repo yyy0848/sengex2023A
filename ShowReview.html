@@ -9,10 +9,14 @@
 </head>
 
 <body>
-  <h1>レビュー作成画面</h1>
-  <h2>レビュー：インターネット技術</h2>
+  <h1>レビュー表示画面</h1>
   <form method="post" target="send">
-    <textarea readonly name="kansou" rows="4" cols="40">readonlyが設定されていると書き換え禁止</textarea>
+    <ul id="title">
+      <script>
+        if (document.querySelector("ul").hasAttribute("id") && document.querySelector("ul").getAttribute("id")=== 'title')
+        console.log("OK.<ul>tag='title'.");
+      </script>
+    </ul>
     <br>
     <!--onclickでJavaScriptの関数を呼び出してページ遷移するよう変更-->
     <input type="button" id="close" value="閉じる" />
@@ -20,5 +24,4 @@
   </form>
   <script type="module" src="./show_review.js" defer></script>
 </body>
-
 </html>

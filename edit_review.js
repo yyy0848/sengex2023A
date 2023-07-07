@@ -27,6 +27,7 @@ if (cancelEl)
 function newRev(subjectID) {  
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
     console.log(json);
+    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
 }
 

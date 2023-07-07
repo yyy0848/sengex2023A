@@ -8,13 +8,13 @@ SubjectList.prototype.subjectList = function () {
   showList();
 }
 
-const showEl = Array.from(document.getElementsByClassName('reviewed')) ?? null;
+const showEl = Array.from(document.getElementsByClassName('reviewed')) ?? null
 if (showEl)
   showEl.forEach(function (target) {
     target.addEventListener('click', function () {
       location = './ShowReview.html'
       /* TODO:遷移先の科目のIDを動的に渡す */
-      showReview(1);
+      showReview(document.getElementById('reviewed'));
     });
   });
 
@@ -24,19 +24,19 @@ if (newReviewEl)
     target.addEventListener('click', function () {
       location = './EditReview.html'
       /* TODO:遷移先の科目のIDを動的に渡す */
-      newReview(1);
+      newReview(document.getElementById('noReview'));
     });
   });
 
 
 
 function showList() {
-  //$("#subjects").append("<li> <a href=" + "#" + " class='noReview' id='"+1+"'>" + "test" + " </a> </li>");
+  //$("#subjects").append("<li class='noReview' id='"+1+"'>" + "test" + " </a> </li>");
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
-    console.log("JSON Data: " + json_id);
+    console.log("json_id: " + json_id);
     for (let id of json_id)
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
-        $("#subjects").append("<li> <a href=" + "#" + " class='noReview' id='"+id+"'>" + json_title + " </a> </li>");
+        $("#subjects").append("<li> <a href='#' class='reviewed' id='"+id+"'>" + json_title + " </a></li>");
       });
   });
 }
