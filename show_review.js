@@ -11,7 +11,7 @@ const id = location.search.split('=')[1];
 const editEl = document.getElementById('edit') ?? null;
 if (editEl)
   editEl.addEventListener('click', function () {
-    location.href = './EditReview.html'
+    location.href = './EditReview.html?id='+id;
     edit(1);
   });
 

@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>レビュー作成画面</title>
-    <script
-            type="text/javascript"
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
-    ></script>
-  </head>
-  <body>
-    <h1>レビュー作成画面</h1>
-    <ul id="title">
-      <script>
-        if (document.querySelector("ul").hasAttribute("id") && document.querySelector("ul").getAttribute("id")=== 'title')
-        console.log("OK.<ul>tag='title'.");
-      </script>
-    </ul>
-    <form method="post" target="send">
-      <input type="text" id="id_textBox1" name="sendPHP" autocomplete="on" minlength="1" maxlength="200"/>
-      <br>
-      <input type="button" id="save" value="保存" />
-      <input type="button" id="cancel" value="キャンセル" />
-    </form>
-    <script type="module" src="./edit_review.js" defer></script>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>レビュー作成画面</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1>レビュー作成画面</h1>
+  <div id="title">
+  </div>
+  <form method="post" target="send">
+    <input type="text" id="id_textBox1" name="sendPHP" autocomplete="on" minlength="1" maxlength="200" />
+    <br>
+    <input type="button" id="save" value="保存" />
+    <input type="button" id="cancel" value="キャンセル" />
+  </form>
+  <script type="module" src="./edit_review.js" defer></script>
+</body>
+
 </html>

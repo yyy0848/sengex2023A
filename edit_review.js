@@ -2,8 +2,11 @@
 function EditReview() {}
 
 EditReview.prototype.editReview = function () {
-
+  newRev(id);
 };
+
+//前のページが指定したidを取得
+const id = location.search.split('=')[1];
 
 const saveEl = document.getElementById('save') ?? null;
 if (saveEl)
@@ -21,6 +24,7 @@ if (cancelEl)
   });
 
 
+  /* TODO: prototypeに書いてるから毎回呼ばれるので、append先要素のidを調整するなどしてShowReviewに影響しないようにする */
 function newRev(subjectID) {  
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
     console.log(json);
