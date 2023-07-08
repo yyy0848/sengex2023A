@@ -5,7 +5,7 @@ class Review{
   private $_text;
   function __construct($id){
     $this->_subjectId = $id;
-    $this->_text = "レビュー書いてみた！";
+    $this->_text = "";
   }
 
   public function getText()
