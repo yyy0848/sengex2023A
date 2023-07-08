@@ -24,7 +24,7 @@ class Student
 
   public function getReviewText($id)
   {
-    return $this->reviews[$id]->getText();
+    return $this->reviews[$id - 1]->getText();
   }
 
   public function setReviewText($id, $text)
