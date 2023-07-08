@@ -3,8 +3,11 @@ import {edit} from './edit_review.js';
 
 function ShowReview() {}
 
-ShowReview.prototype.showReview = function() {
+ShowReview.prototype.showReview = function () {
+  show(id);
 };
+//前のページが指定したidを取得
+const id = location.search.split('=')[1];
 
 const editEl = document.getElementById('edit') ?? null;
 if (editEl)

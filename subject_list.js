@@ -13,7 +13,6 @@ if (showEl)
   //console.log(document.getElementById('reviewed'));
   showEl.forEach(function (target) {
     target.addEventListener('click', function () {
-      location = './ShowReview.html'
       /* TODO:遷移先の科目のIDを動的に渡す */
       showReview(5);
     });
@@ -23,7 +22,7 @@ const newReviewEl = Array.from(document.getElementsByClassName('noReview')) ?? n
 if (newReviewEl)
   newReviewEl.forEach(function (target) {
     target.addEventListener('click', function () {
-      location = './EditReview.html'
+      
       /* TODO:遷移先の科目のIDを動的に渡す */
       newReview(5);
     });
@@ -44,12 +43,12 @@ function showList() {
 
 function showReview(id) {
   //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + id);
-  show(id);
+  location = './ShowReview.html?id=' +id;
 
 }
 
 function newReview(id) {
-  newRev(id);
+  location = './EditReview.html?id=' + id;
 }
 
 $(function () {
