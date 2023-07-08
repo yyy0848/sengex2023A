@@ -1,4 +1,3 @@
-import {showList} from "./subject_list.js";
 
 function EditReview() {}
 
@@ -13,14 +12,12 @@ if (saveEl)
       $.post("student.php", {method:"setReviewText", id:2, text:"text"})動作はしてない
     */
     location.href = './SubjectList.html'
-    showList();
   });
 
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
   cancelEl.addEventListener('click', function () {
     location.href = './SubjectList.html'
-    showList();
   });
 
 

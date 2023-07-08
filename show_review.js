@@ -1,4 +1,3 @@
-import {showList} from './subject_list.js';
 import {edit} from './edit_review.js';
 
 function ShowReview() {}
@@ -19,8 +18,7 @@ if (editEl)
 const closeEl = document.getElementById('close') ?? null;
 if (closeEl)
   closeEl.addEventListener('click', function () {
-    location.href = './SubjectList.html'
-    showList();
+    location.href = './SubjectList.html';
   });
 
 //show(4); 
