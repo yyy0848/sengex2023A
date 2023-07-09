@@ -1,6 +1,28 @@
 import { show } from "./show_review.js";
 import { newRev } from "./edit_review.js";
 
+//document.addEventListener("DOMContentLoaded", function() {
+  //function showList() {
+    const showEl = document.getElementById('reviewed') ?? null;
+    if (showEl)
+      showEl.addEventListener('click', function () {
+        location.href = './ShowReview.html'
+        /* TODO:遷移先の科目のIDを動的に渡す */
+        showReview(1);
+      });
+    //}
+
+  //function newReview() {
+const newReviewEl = document.getElementById('noReview') ?? null;
+    if (newReviewEl)
+      newReviewEl.addEventListener('click', function () {
+        location.href = './ShowReview.html'
+        /* TODO:遷移先の科目のIDを動的に渡す */
+        newReview(1);
+      });
+  //}
+//});
+
 function SubjectList() { }
 
 SubjectList.prototype.subjectList = function () {
@@ -48,6 +70,10 @@ function showReview(id) {
 
 function newReview(id) {
   newRev(id);
+}
+
+SubjectList.prototype.subjectList = function () {
+  //showList();
 }
 
 $(function () {
