@@ -1,57 +1,110 @@
-import { show } from "./show_review.js";
-import { newRev } from "./edit_review.js";
-
-function SubjectList() { }
-
+function SubjectList() {
+}
 SubjectList.prototype.subjectList = function () {
-  /* TODO:どのページでも呼ばれる問題 プロトタイプで書くのをやめる */
   showList();
 }
-
-const showEl = Array.from(document.getElementsByClassName('reviewed')) ?? null;
-if (showEl)
-  showEl.forEach(function (target) {
-    target.addEventListener('click', function () {
-      location = './ShowReview.html'
-      /* TODO:遷移先の科目のIDを動的に渡す */
-      showReview(1);
-    });
-  });
-
-const newReviewEl = Array.from(document.getElementsByClassName('noReview')) ?? null;
-if (newReviewEl)
-  newReviewEl.forEach(function (target) {
-    target.addEventListener('click', function () {
-      location = './EditReview.html'
-      /* TODO:遷移先の科目のIDを動的に渡す */
-      newReview(1);
-    });
-  });
-
 
 
 function showList() {
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
-    for (let id of json_id)
+    var parentEl = document.getElementById('subjects');
+    for (let id of json_id) {
+      console.log(0);
+      for (let id of json_id) {
+        console.log(id);
+      }
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
-        $("#subjects").append("<li class='noReview' id='"+id+"'>" + json_title + "</li>");
+        console.log(1);
+        var childEl = document.createElement('li');
+        childEl.id = id;
+        childEl.textContent = json_title;
+        parentEl.appendChild(childEl);
+        console.log(childEl);
+        childEl.addEventListener("click", function () {
+          $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+            $("#title").append("<textarea readonly row='" + 4 + "' col='" + 40 + "''>" + json_review + " </textarea>");
+            /*使う関数を動的に指定する（showReviewとnewReview）*/
+            if (json_review === "") {
+              newReview(id);
+              //console.log("review:" + json_review);
+            } else {
+              showReview(id);
+            }
+          });
+        });
+        console.log(2);
+        console.log(document);
       });
+      /* getJSONでネストするとうまく行かないぽい */
+      // $.getJSON("student.php", { method: "getReviewText", id: id }, function (text) {
+      //   console.log(text === "");
+      //   var reviewState = (text === "") ? ("noReview") : ("reviewed");
+      //   console.log(reviewState);
+      //   childEl.class = reviewState;
+      //   childEl.addEventListener("click", function () {
+      //     if (reviewState) {
+      //       newReview(id);
+      //     } else {
+      //       showReview(id);
+      //     }
+      //     /* 遷移先はここで決まる */
+      //   });
+      // });
+    }
+  });
+}
 
+function showList() {
+  $.getJSON("student.php", { method: "subjects" }, function (json_id) {
+    var parentEl = document.getElementById('subjects');
+    iterateIds(json_id, parentEl);
+  });
+}
+
+function iterateIds(ids, parentEl) {
+  if (ids.length === 0) {
+    // 全てのIDを処理した場合、終了する
+    return;
+  }
+
+  var id = ids.shift();
+  console.log(0);
+  $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
+    console.log(1);
+    var childEl = document.createElement('li');
+    childEl.id = id;
+    childEl.textContent = json_title;
+    parentEl.appendChild(childEl);
+    console.log(childEl);
+    childEl.addEventListener("click", function () {
+      $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+        $("#title").append("<textarea readonly row='" + 4 + "' col='" + 40 + "''>" + json_review + " </textarea>");
+        /*使う関数を動的に指定する（showReviewとnewReview）*/
+        if (json_review === "") {
+          newReview(id);
+          //console.log("review:" + json_review);
+        } else {
+          showReview(id);
+        }
+      });
+    });
+    console.log(2);
+    console.log(document);
+
+    // 次のIDを処理するために再帰的に呼び出す
+    iterateIds(ids, parentEl);
   });
 }
 
 function showReview(id) {
-  show(id);
-
+  //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + id);
+  location = './ShowReview.html?id=' + id;
 }
-
 function newReview(id) {
-  newRev(id);
+  location = './EditReview.html?id=' + id;
 }
-
 $(function () {
   const sl = new SubjectList();
   sl.subjectList();
 });
-
 export { showList };
