@@ -8,6 +8,8 @@ EditReview.prototype.editReview = function () {
 //前のページが指定したidを取得
 const id = location.search.split('=')[1];
 
+
+/*save()*/
 const saveEl = document.getElementById('save') ?? null;
 if (saveEl)
   saveEl.addEventListener('click', function () {
@@ -17,6 +19,8 @@ if (saveEl)
     location.href = './SubjectList.html'
   });
 
+  
+/*実質cancel()*/
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
   cancelEl.addEventListener('click', function () {
@@ -26,8 +30,8 @@ if (cancelEl)
 
   /* TODO: prototypeに書いてるから毎回呼ばれるので、append先要素のidを調整するなどしてShowReviewに影響しないようにする */
 function newRev(subjectID) {  
-  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
-    console.log(json);
+  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
+    console.log(json_title);
     $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
 }

@@ -7,9 +7,7 @@ SubjectList.prototype.subjectList = function () {
 
 
 function showList() {
-  //$("#subjects").append("<li class='noReview' id='"+1+"'>" + "test" + " </a> </li>");
   $.getJSON("student.php", { method: "subjects" }, function (json_id) {
-    //console.log("json_id: " + json_id);
     var parentEl = document.getElementById('subjects');
     for (let id of json_id) {
       $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
@@ -18,8 +16,17 @@ function showList() {
         childEl.textContent = json_title;
         parentEl.appendChild(childEl);
         childEl.addEventListener("click", function () {
-          /* TODO: 使う関数を動的に指定する（showReviewとnewReview） */
-          showReview(id);
+
+          $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+            console.log("review:" + json_review);
+            $("#title").append("<textarea readonly row='" + 4 + "' col='" + 40 + "''>" + json_review + " </textarea>");
+            /*使う関数を動的に指定する（showReviewとnewReview）*/
+          if (json_review === "") {
+            newReview(id);
+          } else {
+            showReview(id);
+          }
+          });
         });
 
         });
