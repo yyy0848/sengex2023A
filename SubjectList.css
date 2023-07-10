@@ -1,6 +1,8 @@
-a[class="reviewed"]:after {
-  white-space: pre;
-  content: "  レビューあり";
+li {
+  text-decoration:underline;
+}
+
+div[class="reviewed"]:after {
+  content: "レビューあり";
   color: red;
 }
-    

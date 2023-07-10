@@ -28,7 +28,6 @@ function iterateIds(ids, parentEl) {
     console.log(childEl);
     childEl.addEventListener("click", function () {
       $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
-        $("#title").append("<textarea readonly row='" + 4 + "' col='" + 40 + "''>" + json_review + " </textarea>");
         /*使う関数を動的に指定する（showReviewとnewReview）*/
         if (json_review === "") {
           newReview(id);
@@ -44,7 +43,7 @@ function iterateIds(ids, parentEl) {
       if (text !== "") {
         var reviewStateEl = document.createElement('div');
         reviewStateEl.className = "reviewed";
-        reviewStateEl.textContent = "レビューあり";
+        //reviewStateEl.textContent = "レビューあり";
         parentEl.append(reviewStateEl);
       }
     });
