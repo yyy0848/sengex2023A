@@ -1,5 +1,3 @@
-//import {edit} from './edit_review.js';
-
 function ShowReview() {}
 
 ShowReview.prototype.showReview = function () {
@@ -13,7 +11,6 @@ const editEl = document.getElementById('edit') ?? null;
 if (editEl)
   editEl.addEventListener('click', function () {
     location.href = './EditReview.html?id='+id;
-    edit(1);
   });
 
 /*実質close()*/

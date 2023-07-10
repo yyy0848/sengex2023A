@@ -1,5 +1,4 @@
-function SubjectList() {
-}
+function SubjectList() {}
 
 SubjectList.prototype.subjectList = function () {
   showList();
@@ -43,7 +42,6 @@ function iterateIds(ids, parentEl) {
       if (text !== "") {
         var reviewStateEl = document.createElement('div');
         reviewStateEl.className = "reviewed";
-        //reviewStateEl.textContent = "レビューあり";
         parentEl.append(reviewStateEl);
       }
     });
@@ -57,7 +55,6 @@ function iterateIds(ids, parentEl) {
 
 
 function showReview(id) {
-  //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + id);
   location = './ShowReview.html?id=' + id;
 
 }
