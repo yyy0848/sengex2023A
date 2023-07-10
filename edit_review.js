@@ -1,11 +1,20 @@
-import {showList} from "./subject_list.js";
 
 function EditReview() {}
 
 EditReview.prototype.editReview = function () {
-
+  $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+    if (json_review === "") 
+      newRev(id);
+    else
+      edit(id);
+  });
 };
 
+//前のページが指定したidを取得
+const id = location.search.split('=')[1];
+
+
+/*save()*/
 const saveEl = document.getElementById('save') ?? null;
 if (saveEl)
   saveEl.addEventListener('click', function () {
@@ -13,29 +22,34 @@ if (saveEl)
       $.post("student.php", {method:"setReviewText", id:2, text:"text"})動作はしてない
     */
     location.href = './SubjectList.html'
-    showList();
   });
 
+  
+/*実質cancel()*/
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
   cancelEl.addEventListener('click', function () {
     location.href = './SubjectList.html'
-    showList();
   });
 
 
 function newRev(subjectID) {  
-  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
-    console.log(json);
+  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
+    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
+  });
+  $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+    console.log(json_review);
+    $("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' ></textarea>");
   });
 }
 
 function edit(subjectID) {
-  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json) {
-    console.log(json);
+  $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
+    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
-  $.getJSON("student.php", { method: "getReviewText", id: subjectID }, function (json) {
-      console.log(json);
+  $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
+    console.log(json_review);
+    $("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' > " + json_review + "</textarea>");
   });
 
 }

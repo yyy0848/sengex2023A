@@ -1,3 +1,8 @@
-.isReview {
-    color: red;
+li {
+  text-decoration:underline;
+}
+
+div[class="reviewed"]:after {
+  content: "レビューあり";
+  color: red;
 }
