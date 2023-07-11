@@ -18,7 +18,7 @@ const id = location.search.split('=')[1];
 const saveEl = document.getElementById('save') ?? null;
 if (saveEl)
   saveEl.addEventListener('click', function () {
-    $.post("student.php", {method:"setReviewText", id:2, text:"text"})
+    $.post("student.php", {method:"setReviewText", id:id , text:text})
     location.href = './SubjectList.html'
   });
 
