@@ -30,7 +30,8 @@ function show(subjectId) {
 
   $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json) {
     console.log("review:" + json);
-    $("#title").append("<textarea readonly rows='" + 16 + "' cols='" + 60 + "''>" + json + " </textarea>");
+    //$("#title").append("<textarea readonly rows='" + 16 + "' cols='" + 60 + "''>" + json + " </textarea>");
+    document.getElementById("reviewText").value = json
   });
 }
 

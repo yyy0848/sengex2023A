@@ -50,6 +50,7 @@ if (isset($_GET["method"])) {
   if (isset($_POST["method"])) {
     if($_POST["method"] === "setReviewText"){
       $st->setReviewText($_POST["id"],$_POST["text"]);
+      print_r("okok");
     };
   }
 
