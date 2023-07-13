@@ -48,7 +48,6 @@ function edit(subjectID) {
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     console.log(json_review);
-    //$("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' > " + json_review + "</textarea>");
     document.getElementById("reviewText").value = json_review
   });
 
