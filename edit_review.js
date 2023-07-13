@@ -16,14 +16,14 @@ const id = location.search.split('=')[1];
 
 /*save()*/
 const saveEl = document.getElementById('save') ?? null;
+const reviewText = document.getElementById('reviewText');
 if (saveEl)
-  const text = document.getElementById('reviewText')
   saveEl.addEventListener('click', function () {
-    $.post("student.php", {method:"setReviewText", id:id , text:"text"})
+    $.post("student.php", {method:"setReviewText", id:id , text:reviewText.value});
     location.href = './SubjectList.html'
   });
 
-  
+
 /*実質cancel()*/
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
