@@ -16,15 +16,14 @@ const id = location.search.split('=')[1];
 
 /*save()*/
 const saveEl = document.getElementById('save') ?? null;
+const reviewText = document.getElementById('reviewText');
 if (saveEl)
   saveEl.addEventListener('click', function () {
-    /* TODO: setReviewTextを使ってphpに入力をPOSTする
-      $.post("student.php", {method:"setReviewText", id:2, text:"text"})動作はしてない
-    */
+    $.post("student.php", {method:"setReviewText", id:id , text:reviewText.value});
     location.href = './SubjectList.html'
   });
 
-  
+
 /*実質cancel()*/
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
@@ -39,7 +38,7 @@ function newRev(subjectID) {
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     console.log(json_review);
-    $("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' ></textarea>");
+    //$("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' ></textarea>");
   });
 }
 
@@ -49,7 +48,7 @@ function edit(subjectID) {
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     console.log(json_review);
-    $("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' > " + json_review + "</textarea>");
+    document.getElementById("reviewText").value = json_review
   });
 
 }
