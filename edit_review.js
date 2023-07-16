@@ -19,7 +19,7 @@ const saveEl = document.getElementById('save') ?? null;
 const reviewText = document.getElementById('reviewText');
 if (saveEl)
   saveEl.addEventListener('click', function () {
-    $.post("student.php", {method:"setReviewText", id:id , text:reviewText.value});
+    save(id, reviewText.value);
     location.href = './SubjectList.html'
   });
 
@@ -45,6 +45,10 @@ function edit(subjectID) {
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     document.getElementById("reviewText").value = json_review
   });
+}
+
+function save(id, text){
+  $.post("student.php", { method: "setReviewText", id: id, text: text });
 
 }
 
@@ -53,4 +57,4 @@ $(function () {
   mt.editReview();
 });
 
-export {newRev, edit};
+export {newRev, edit, save};
