@@ -36,10 +36,6 @@ function newRev(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
     $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
-  $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
-    console.log(json_review);
-    //$("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' ></textarea>");
-  });
 }
 
 function edit(subjectID) {
@@ -47,14 +43,13 @@ function edit(subjectID) {
     $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
-    console.log(json_review);
     document.getElementById("reviewText").value = json_review
   });
 
 }
 
 $(function () {
-  var mt = new EditReview();
+  const mt = new EditReview();
   mt.editReview();
 });
 
