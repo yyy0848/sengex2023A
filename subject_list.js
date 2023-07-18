@@ -17,14 +17,14 @@ function iterateIds(ids, parentEl) {
     return;
   }
   var id = ids.shift();
-  console.log(0);
+  //console.log(0);
   $.getJSON("subject.php", { method: "getTitle", id: id }, function (json_title) {
-    console.log(1);
+    //console.log(1);
     var childEl = document.createElement('li');
     childEl.id = id;
     childEl.textContent = json_title;
     parentEl.appendChild(childEl);
-    console.log(childEl);
+    //console.log(childEl);
     childEl.addEventListener("click", function () {
       $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
         /*使う関数を動的に指定する（showReviewとnewReview）*/
