@@ -40,6 +40,7 @@ function edit(subjectID) {
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     document.getElementById("reviewText").value = json_review
+  });
 }
 
 function save(id, text){
