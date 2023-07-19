@@ -4,7 +4,7 @@ require "review.php";
 class Student
 {
   private $studentNo = 1;
-  public $subjectIds = array(1, 2, 3, 4, 5);
+  private $subjectIds = array(1, 2, 3, 4, 5);
   private $reviews;
 
   function __construct()
@@ -12,7 +12,7 @@ class Student
     $this->reviews = array_map([$this, "getReview"], $this->subjectIds);
   }
 
-  public function getReview($revId)
+  private function getReview($revId)
   {
     return new Review($revId);
   }
@@ -29,7 +29,6 @@ class Student
 
   public function setReviewText($id, $text)
   {
-    /* TODO: レビューテキストをsetする */
     $this->reviews[$id]->setText($text);
   }
 }
@@ -46,7 +45,6 @@ if (isset($_GET["method"])) {
   }
 }
 
-/* TODO:動作確認 */
   if (isset($_POST["method"])) {
     if($_POST["method"] === "setReviewText"){
       $st->setReviewText($_POST["id"],$_POST["text"]);

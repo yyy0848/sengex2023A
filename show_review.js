@@ -20,23 +20,23 @@ if (closeEl)
     location.href = './SubjectList.html';
   });
 
+/*取得したタイトル、レビューテキストを表示*/
 function show(subjectId) {
-  
-  /*取得したタイトル、レビューテキストをshowReviewページの要素内にappendする*/
   $.getJSON("subject.php", { method: "getTitle", id: subjectId }, function (json_title) {
-    console.log(json_title);
-    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
+    $("#title").append("<h1> レビュー：" + json_title + " </h1>");
   });
-
+  $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json_review) {
+    $("#textarea").append("<textarea readonly rows='" + 16 + "' cols='" + 60 + "''>" + json_review + " </textarea>");
+  });
   $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json) {
     console.log("review:" + json);
-    document.getElementById("textarea").value = json
+    document.getElementById("textarea").value = json;
   });
 }
 
 $(function () {
-  var rv = new ShowReview();
+  const rv = new ShowReview();
   rv.showReview();
 });
 
-export {show};
+export { show };
