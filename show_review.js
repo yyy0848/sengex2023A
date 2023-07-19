@@ -35,8 +35,8 @@ function show(subjectId) {
 }
 
 $(function () {
-  var rv = new ShowReview();
+  const rv = new ShowReview();
   rv.showReview();
 });
 
-export {show};
+export { show };

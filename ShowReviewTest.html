@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>レビュー表示画面</title>
+</head>
+
+<body>
+<div id="title"></div>
+<form method="post" target="send">
+  <textarea readonly id="reviewText" rows="16" cols="60"></textarea>
+  <br>
+  <input type="button" id="close" value="閉じる" />
+  <input type="button" id="edit" value="編集" />
+</form>
+<script type="module" src="./show_review.js" defer></script>
+</body>
+</html>
