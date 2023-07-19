@@ -30,7 +30,7 @@ function show(subjectId) {
 
   $.getJSON("student.php", { method: "getReviewText", id: subjectId }, function (json) {
     console.log("review:" + json);
-    document.getElementById("reviewText").value = json
+    document.getElementById("textarea").value = json
   });
 }
 
