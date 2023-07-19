@@ -19,7 +19,7 @@ const saveEl = document.getElementById('save') ?? null;
 const reviewText = document.getElementById('reviewText');
 if (saveEl)
   saveEl.addEventListener('click', function () {
-    $.post("student.php", {method:"setReviewText", id:id , text:reviewText.value});
+    save(id, reviewText.value);
     location.href = './SubjectList.html'
   });
 
@@ -36,10 +36,6 @@ function newRev(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
     $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
-  $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
-    console.log(json_review);
-    //$("#textarea").append("<textarea rows='" + 16 + "' cols='" + 60 + "' ></textarea>");
-  });
 }
 
 function edit(subjectID) {
@@ -47,15 +43,18 @@ function edit(subjectID) {
     $("#title").append("<h2> レビュー：" + json_title + " </h2>");
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
-    console.log(json_review);
     document.getElementById("reviewText").value = json_review
   });
+}
+
+function save(id, text){
+  $.post("student.php", { method: "setReviewText", id: id, text: text });
 
 }
 
 $(function () {
-  var mt = new EditReview();
+  const mt = new EditReview();
   mt.editReview();
 });
 
-export {newRev, edit};
+export {newRev, edit, save};
