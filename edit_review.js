@@ -1,4 +1,3 @@
-
 function EditReview() {}
 
 EditReview.prototype.editReview = function () {
@@ -13,7 +12,6 @@ EditReview.prototype.editReview = function () {
 //前のページが指定したidを取得
 const id = location.search.split('=')[1];
 
-
 /*save()*/
 const saveEl = document.getElementById('save') ?? null;
 const reviewText = document.getElementById('reviewText');
@@ -23,7 +21,6 @@ if (saveEl)
     location.href = './SubjectList.html'
   });
 
-
 /*実質cancel()*/
 const cancelEl = document.getElementById('cancel') ?? null;
 if (cancelEl)
@@ -31,25 +28,22 @@ if (cancelEl)
     location.href = './SubjectList.html'
   });
 
-
 function newRev(subjectID) {  
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
-    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
+    $("#title").append("<h1> レビュー：" + json_title + " </h1>");
   });
 }
 
 function edit(subjectID) {
   $.getJSON("subject.php", { method: "getTitle", id: subjectID }, function (json_title) {
-    $("#title").append("<h2> レビュー：" + json_title + " </h2>");
+    $("#title").append("<h1> レビュー：" + json_title + " </h1>");
   });
   $.getJSON("student.php", { method: "getReviewText", id: id }, function (json_review) {
     document.getElementById("reviewText").value = json_review
-  });
 }
 
 function save(id, text){
   $.post("student.php", { method: "setReviewText", id: id, text: text });
-
 }
 
 $(function () {
